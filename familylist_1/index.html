@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>가족 의상 사이즈 리스트 | 시그널스튜디오 광주이천점</title>
+<meta name="description" content="시그널스튜디오 광주이천점 촬영 전 가족 의상 사이즈 체크리스트">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#ffffff;
+  --bg:#f4f1ea;
+  --raised:#faf8f3;
+  --ink:#232323;
+  --ink-soft:#6b6b66;
+  --ink-faint:#a5a49e;
+  --accent:#3f5c46;
+  --accent-strong:#2c4232;
+  --accent-soft:#e8efe9;
+  --accent-line:#c9d8cc;
+  --gold:#b08d57;
+  --line:#e2e0d9;
+  --line-soft:#ecebe6;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0; padding:20px 12px 40px;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Nanum Gothic","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.container{
+  max-width:720px; margin:0 auto;
+  background:var(--paper);
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(44,66,50,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  overflow:hidden;
+}
+
+/* ---------- 헤더 ---------- */
+.brand-head{
+  text-align:center;
+  padding:30px 20px 22px;
+  background:linear-gradient(180deg, var(--accent-soft) 0%, var(--paper) 100%);
+  border-bottom:1px solid var(--line-soft);
+}
+.eyebrow{
+  margin:0 0 8px;
+  font-size:11px; letter-spacing:0.22em; font-weight:700;
+  color:var(--accent);
+}
+.eyebrow .dot{display:inline-block; width:4px; height:4px; border-radius:50%; background:var(--gold); vertical-align:middle; margin:0 8px 2px;}
+.title{
+  margin:0;
+  font-family:"Nanum Myeongjo","Nanum Gothic",serif;
+  font-weight:800; font-size:26px; letter-spacing:-0.02em; color:var(--accent-strong);
+}
+.subtitle{margin:10px 0 0; font-size:13.5px; line-height:1.6; color:var(--ink-soft);}
+.ornament{display:block; width:40px; height:2px; background:var(--gold); margin:14px auto 0; border-radius:2px;}
+
+.body{padding:18px 16px 22px;}
+
+/* ---------- 작성 안내 ---------- */
+.howto{
+  background:var(--raised);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px 16px;
+  margin:0 0 18px;
+}
+.howto ol{list-style:none; margin:0; padding:0; counter-reset:s;}
+.howto li{
+  counter-increment:s;
+  display:flex; gap:10px; align-items:flex-start;
+  font-size:13.5px; line-height:1.55; color:var(--ink);
+  padding:4px 0;
+}
+.howto li::before{
+  content:counter(s);
+  flex:none; width:20px; height:20px; margin-top:1px;
+  border-radius:50%;
+  background:var(--accent); color:#fff;
+  font-size:11px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+.howto b{color:var(--accent-strong);}
+
+/* ---------- 가족 카드 ---------- */
+.family-block{
+  border:1px solid var(--line);
+  border-radius:14px;
+  margin-bottom:16px;
+  overflow:hidden;
+  background:var(--paper);
+}
+.family-title{
+  display:flex; align-items:center; gap:8px;
+  padding:11px 14px;
+  background:var(--accent);
+  color:#fff;
+  font-weight:800; font-size:15px; letter-spacing:-0.01em;
+}
+.family-title::before{
+  content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); flex:none;
+}
+.family-controls-bottom{display:flex; justify-content:flex-end; gap:6px; padding:10px 10px 12px;}
+
+/* ---------- 표 ---------- */
+table{width:100%; border-collapse:collapse; table-layout:fixed;}
+th,td{text-align:center; vertical-align:middle; padding:5px 2px;}
+thead th{
+  background:var(--accent-soft);
+  color:var(--accent-strong);
+  font-size:12.5px; font-weight:700; line-height:1.25;
+  padding:9px 2px;
+  border-bottom:1px solid var(--accent-line);
+}
+thead th + th{border-left:1px solid rgba(255,255,255,0.7);}
+col.c-no{width:6%} col.c-rel{width:20%} col.c-sex{width:13%} col.c-h{width:16%}
+col.c-top{width:14%} col.c-shoe{width:14%} col.c-hm{width:17%}
+
+td.no{
+  color:var(--accent); font-weight:800; font-size:13px;
+  background:var(--raised);
+  border-right:1px solid var(--line-soft);
+}
+tr.main-row td{padding-top:9px; padding-bottom:9px; border-bottom:1px solid var(--line-soft);}
+tbody tr.main-row:last-child td{border-bottom:none;}
+
+input[type=text],select{
+  width:100%; height:34px; padding:0 2px;
+  border:1px solid var(--line); border-radius:9px;
+  font-size:16px; /* 16px 미만이면 아이폰에서 입력 시 화면이 확대됨 */
+  font-family:inherit; color:var(--ink); background:var(--paper);
+  text-align:center; text-align-last:center;
+  outline:none;
+  transition:border-color .15s, box-shadow .15s, background .15s;
+}
+select{
+  -webkit-appearance:none; appearance:none;
+  background:var(--raised);
+  color:var(--ink-faint);
+}
+select.filled{color:var(--ink); background:var(--accent-soft); border-color:var(--accent-line); font-weight:700;}
+input[type=text].filled{background:var(--accent-soft); border-color:var(--accent-line); font-weight:700;}
+input[type=text]:focus,select:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(63,92,70,0.15);}
+input[type=text]::placeholder{color:var(--ink-faint);}
+
+/* 헤어·메이크업 체크 */
+input[type=checkbox]{
+  -webkit-appearance:none; appearance:none;
+  width:24px; height:24px; margin:0; vertical-align:middle;
+  border:1.5px solid var(--accent-line); border-radius:7px; background:var(--paper);
+  cursor:pointer; position:relative;
+  transition:background .15s, border-color .15s;
+}
+input[type=checkbox]:checked{background:var(--accent); border-color:var(--accent);}
+input[type=checkbox]:checked::after{
+  content:""; position:absolute; left:7px; top:3px; width:6px; height:11px;
+  border:solid #fff; border-width:0 2.5px 2.5px 0; transform:rotate(45deg);
+}
+
+
+/* ---------- 헤어·메이크업 선예약 할인 ---------- */
+.hm-offer{
+  border:1px solid #e6d6b8;
+  background:linear-gradient(180deg,#fdf7ea 0%,#fffdf8 100%);
+  border-radius:14px;
+  padding:16px 16px 14px;
+  margin:4px 0 20px;
+}
+.hm-badge{
+  display:inline-block;
+  background:var(--gold); color:#fff;
+  font-size:11px; font-weight:800; letter-spacing:0.04em;
+  padding:4px 10px; border-radius:999px;
+}
+.hm-offer h3{
+  margin:10px 0 4px;
+  font-size:16px; font-weight:800; color:var(--accent-strong); letter-spacing:-0.01em; line-height:1.45;
+}
+.hm-offer .lead{margin:0 0 12px; font-size:12.5px; color:var(--ink-soft);}
+.price-list{list-style:none; margin:0; padding:0;}
+.price-list li{
+  display:flex; justify-content:space-between; align-items:center; gap:10px;
+  background:#fff; border:1px solid #efe4cf; border-radius:10px;
+  padding:11px 12px; margin-top:8px;
+}
+.price-list .pname{font-size:14px; font-weight:800; color:var(--ink); line-height:1.35;}
+.price-list .pname small{display:block; font-size:11.5px; font-weight:400; color:var(--ink-soft); margin-top:2px;}
+.price-list .pval{text-align:right; flex:none; font-size:13px; line-height:1.55; color:var(--ink-soft); white-space:nowrap;}
+.price-list .pval b{font-size:15px; color:var(--accent-strong);}
+.hm-offer .call{display:block; text-align:center; margin-top:12px; font-size:12.5px; color:var(--ink-soft);}
+.hm-offer .call a{color:var(--accent-strong); font-weight:800; text-decoration:none; border-bottom:1px solid var(--accent-line);}
+
+/* ---------- 버튼 ---------- */
+button{
+  font-family:inherit; cursor:pointer;
+  border-radius:999px; font-weight:700;
+  transition:background .15s, color .15s, transform .05s;
+}
+button:active{transform:scale(0.97);}
+.actions{display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin:6px 0 4px;}
+.btn-primary{background:var(--accent); color:#fff; border:1px solid var(--accent); padding:12px 22px; font-size:15px; box-shadow:0 4px 12px rgba(63,92,70,0.25);}
+.btn-primary:hover{background:var(--accent-strong);}
+.btn-line{background:var(--paper); color:var(--accent-strong); border:1px solid var(--accent-line); padding:12px 18px; font-size:15px;}
+.btn-line:hover{background:var(--accent-soft);}
+.btn-ghost{background:transparent; color:var(--ink-soft); border:1px solid var(--line); padding:12px 16px; font-size:14px;}
+.btn-sm{background:var(--paper); color:var(--accent-strong); border:1px solid var(--accent-line); padding:7px 13px; font-size:12.5px;}
+.btn-sm.minus{color:var(--ink-soft); border-color:var(--line);}
+.family-buttons{display:flex; justify-content:center; gap:8px; margin:0 0 20px;}
+.family-buttons .btn-line{padding:10px 16px; font-size:14px;}
+.save-note{text-align:center; font-size:12px; color:var(--ink-faint); margin:8px 0 0;}
+
+/* ---------- 푸터 ---------- */
+.brand-foot{
+  text-align:center;
+  padding:18px 16px 22px;
+  border-top:1px solid var(--line-soft);
+  background:var(--raised);
+}
+.brand-foot .name{margin:0; font-family:"Nanum Myeongjo","Nanum Gothic",serif; font-weight:800; font-size:15px; color:var(--accent-strong);}
+.brand-foot .info{margin:6px 0 0; font-size:12px; line-height:1.6; color:var(--ink-soft);}
+.brand-foot a{color:inherit; text-decoration:none;}
+
+/* ---------- 휴대폰 ---------- */
+@media (max-width:480px){
+  body{padding:10px 6px 30px;}
+  .container{border-radius:16px;}
+  .brand-head{padding:24px 14px 18px;}
+  .title{font-size:22px;}
+  .subtitle{font-size:12.5px;}
+  .body{padding:14px 8px 18px;}
+  .howto{padding:12px 12px; margin-bottom:14px;}
+  .howto li{font-size:12.5px;}
+  thead th{font-size:11px; letter-spacing:-0.3px; padding:8px 1px;}
+  th,td{padding:4px 1px;}
+  input[type=text],select{height:32px; padding:0; font-size:14px; letter-spacing:-0.3px; border-radius:8px;}
+  td.no{font-size:12px;}
+  input[type=checkbox]{width:22px; height:22px;}
+  input[type=checkbox]:checked::after{left:6px; top:2px;}
+  .family-title{font-size:14px; padding:10px 12px;}
+  .btn-primary,.btn-line{padding:11px 16px; font-size:14px;}
+  .btn-ghost{padding:11px 13px; font-size:13px;}
+}
+@media (max-width:360px){
+  input[type=text],select{font-size:13px; letter-spacing:-0.5px;}
+}
+
+/* ---------- 이미지 저장용 ---------- */
+.cap-val{min-height:24px; line-height:24px; font-size:14px; text-align:center; white-space:nowrap; font-weight:700; color:var(--ink);}
+.cap-val.cap-check{color:var(--accent); font-size:15px;}
+</style>
+</head>
+<body>
+<div class="container" id="captureArea">
+
+  <header class="brand-head">
+    <p class="eyebrow">SIGNAL STUDIO<span class="dot"></span>GWANGJU-ICHEON</p>
+    <h1 class="title">가족 의상 사이즈 리스트</h1>
+    <p class="subtitle" data-cap-hide>촬영 당일 의상을 미리 준비해 두기 위해<br>가족분들의 사이즈를 알려주세요.</p>
+    <span class="ornament"></span>
+  </header>
+
+  <div class="body">
+    <div class="howto" data-cap-hide>
+      <ol>
+        <li><span><b>성별</b>을 먼저 선택하시면 상의·신발 사이즈 목록이 열립니다.</span></li>
+        <li><span>헤어·메이크업을 원하시는 분은 <b>체크</b>해 주세요. (하단 선예약 할인가 참고)</span></li>
+        <li><span>작성 후 <b>이미지 저장</b>을 눌러 카카오톡으로 보내주세요.</span></li>
+      </ol>
+    </div>
+
+    <div id="familiesContainer"></div>
+
+    <div class="family-buttons" id="familyButtons" data-cap-hide>
+      <button class="btn-line" onclick="addFamily()">+ 가족 추가</button>
+      <button class="btn-ghost" onclick="removeFamily()">가족 삭제</button>
+    </div>
+
+    <section class="hm-offer" data-cap-hide>
+      <span class="hm-badge">선예약 할인</span>
+      <h3>헤어·메이크업 선예약 시<br>할인 적용된 금액으로 예약 가능합니다!</h3>
+      <p class="lead">위 표의 헤어·메이크업 칸에 체크해 주시면 함께 예약해 드립니다.</p>
+      <ul class="price-list">
+        <li>
+          <span class="pname">풀 헤어메이크업<small>50대 이상 · 드레스 착용 시 추천</small></span>
+          <span class="pval">여성 <b>10만원</b>/인<br>남성 <b>4만원</b>/인</span>
+        </li>
+        <li>
+          <span class="pname">쁘띠 여성 헤어메이크업<small>베이스 제외</small></span>
+          <span class="pval">여성 <b>7만원</b>/인</span>
+        </li>
+      </ul>
+      <span class="call">자세한 안내는 <a href="tel:031-765-8872">031-765-8872</a>로 전화 주세요.</span>
+    </section>
+
+    <div class="actions" data-cap-hide>
+      <button class="btn-primary" onclick="downloadImage()">이미지 저장</button>
+      <button class="btn-line" onclick="captureClipboard()">캡처(복사)</button>
+      <button class="btn-ghost" onclick="confirmReset()">초기화</button>
+    </div>
+    <p class="save-note" data-cap-hide>저장된 이미지에는 입력하신 내용만 깔끔하게 정리되어 담깁니다.</p>
+  </div>
+
+  <footer class="brand-foot">
+    <p class="name">시그널스튜디오 광주이천점</p>
+    <p class="info">경기 광주시 초월읍 경충대로 1305-25<br><a href="tel:031-765-8872">031-765-8872</a> · 수~일 09:00–18:00</p>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+/* ===== 페이지별 설정 (CONFIG) ===== */
+const CONFIG = {
+  relations: ['아빠','엄마','아들','딸'],
+  firstFamilyName: null,           // 가족1, 가족2 ...
+  initialBlocks: [3],              // 가족1, 3행
+  firstBlockPresets: [],  // 첫 블록에 미리 입력해 둘 관계·성별
+  showFamilyButtons: false         // 단일 가족 모드
+};
+/* ================================== */
+
+const maleSizes = Array.from({length:7},(_,i)=>90+i*5);
+const femaleSizes = ['44','55','66','77','88','99'];
+const kidSizes = Array.from({length:7},(_,i)=>String(90+i*10)); // 성별에 '키즈'가 표시되므로 숫자만
+let familyCount = 0;
+
+function markFilled(el){ el.classList.toggle('filled', !!el.value.trim()); }
+
+function createRows(index){
+  const relHtml = '<option value="">선택</option>' + CONFIG.relations.map(r=>`<option value="${r}">${r}</option>`).join('');
+  const main = document.createElement('tr');
+  main.className = 'main-row';
+  main.innerHTML = `
+    <td class="no">${index}</td>
+    <td><select onchange="markFilled(this)">${relHtml}</select></td>
+    <td><select onchange="updateSizes(this); markFilled(this)">
+      <option value="">선택</option><option value="male">남성</option>
+      <option value="female">여성</option><option value="kid">키즈</option>
+    </select></td>
+    <td><input type="text" inputmode="numeric" placeholder="cm" onblur="addCm(this)" onfocus="removeCm(this)"></td>
+    <td><select class="topSize" onchange="markFilled(this)"><option value="">선택</option></select></td>
+    <td><select class="shoeSize" onchange="markFilled(this)"><option value="">선택</option></select></td>
+    <td><input type="checkbox" aria-label="헤어·메이크업 신청"></td>`;
+  return [main];
+}
+
+function createFamilyBlock(rows=3, presets=[]){
+  familyCount++;
+  const block = document.createElement('div');
+  block.className = 'family-block';
+  block.innerHTML = `
+    <div class="family-title"></div>
+    <table>
+      <colgroup><col class="c-no"><col class="c-rel"><col class="c-sex"><col class="c-h"><col class="c-top"><col class="c-shoe"><col class="c-hm"></colgroup>
+      <thead><tr><th>No</th><th>관계</th><th>성별</th><th>키<br>(cm)</th><th>상의</th><th>신발</th><th>헤어<br>메이크업</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div class="family-controls-bottom" data-cap-hide>
+      <button class="btn-sm" onclick="addRow(this)">+ 행 추가</button>
+      <button class="btn-sm minus" onclick="removeRow(this)">행 삭제</button>
+    </div>`;
+  const tbody = block.querySelector('tbody');
+  for(let i=0;i<rows;i++) createRows(i+1).forEach(tr=>tbody.appendChild(tr));
+  presets.forEach((ps,i)=>{
+    const tr = tbody.children[i]; if(!tr) return;
+    const [rel, sex] = tr.querySelectorAll('select');
+    rel.value = ps.rel; markFilled(rel);
+    sex.value = ps.sex; updateSizes(sex); markFilled(sex);
+  });
+  document.getElementById('familiesContainer').appendChild(block);
+  updateFamilyNames();
+}
+
+function familyName(i){
+  if(CONFIG.firstFamilyName) return i===0 ? CONFIG.firstFamilyName : `가족${i}`;
+  return `가족${i+1}`;
+}
+function updateFamilyNames(){
+  document.querySelectorAll('.family-block').forEach((b,i)=>b.querySelector('.family-title').textContent = familyName(i));
+}
+function renumber(tbody){
+  tbody.querySelectorAll('tr.main-row').forEach((tr,i)=>tr.querySelector('td.no').textContent = i+1);
+}
+function addRow(btn){
+  const tbody = btn.closest('.family-block').querySelector('tbody');
+  createRows(tbody.querySelectorAll('tr.main-row').length+1).forEach(tr=>tbody.appendChild(tr));
+}
+function removeRow(btn){
+  const tbody = btn.closest('.family-block').querySelector('tbody');
+  if(tbody.children.length>=1){ tbody.lastElementChild.remove(); renumber(tbody); }
+}
+function addFamily(){ createFamilyBlock(3); }
+function removeFamily(){
+  const c = document.getElementById('familiesContainer');
+  if(c.lastElementChild){ c.lastElementChild.remove(); familyCount = c.children.length; }
+  updateFamilyNames();
+}
+function addCm(input){ const v=input.value.replace(/[^0-9]/g,''); input.value = v ? v+'cm' : ''; markFilled(input); }
+function removeCm(input){ input.value = input.value.replace(/[^0-9]/g,''); }
+
+function fill(sel, list){
+  sel.innerHTML = '<option value="">선택</option>';
+  list.forEach(s=>{ const o=document.createElement('option'); o.value=s; o.textContent=s; sel.appendChild(o); });
+  markFilled(sel);
+}
+function updateSizes(select){
+  const row = select.closest('tr');
+  const v = select.value;
+  fill(row.querySelector('.topSize'), v==='male'?maleSizes : v==='female'?femaleSizes : v==='kid'?kidSizes : []);
+  const shoes=[]; for(let i=130;i<=300;i+=10) shoes.push(i);
+  fill(row.querySelector('.shoeSize'), v ? shoes : []);
+}
+
+/* ===== 캡처 / 이미지 저장 ===== */
+async function renderCanvas(){
+  // 입력칸을 일반 글자로 바꾼 복사본을 만들어 촬영 (휴대폰에서도 잘림 없이 전체 저장)
+  const area = document.getElementById('captureArea');
+  const clone = area.cloneNode(true);
+  clone.removeAttribute('id');
+  clone.querySelectorAll('[data-cap-hide]').forEach(el=>el.remove());
+
+  const src = Array.from(area.querySelectorAll('select, input'));
+  const dst = Array.from(clone.querySelectorAll('select, input'));
+  dst.forEach((el,i)=>{
+    const o = src[i];
+    const span = document.createElement('div');
+    span.className = 'cap-val';
+    if(o.type==='checkbox'){ span.textContent = o.checked ? '신청' : ''; span.classList.add('cap-check'); }
+    else if(o.tagName==='SELECT') span.textContent = o.value ? o.options[o.selectedIndex].text : '';
+    else span.textContent = o.value;
+    el.replaceWith(span);
+  });
+  // 저장 날짜 표시
+  const stamp = document.createElement('p');
+  const d = new Date();
+  stamp.style.cssText = 'margin:0 0 12px; text-align:right; font-size:11px; color:#a5a49e;';
+  stamp.textContent = `작성일 ${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+  clone.querySelector('.body').prepend(stamp);
+
+  const holder = document.createElement('div');
+  holder.style.cssText = 'position:fixed; left:-10000px; top:0; width:460px; background:#f4f1ea; padding:0;';
+  clone.style.cssText = 'width:460px; max-width:none; box-shadow:none; border-radius:0; margin:0;';
+  holder.appendChild(clone);
+  document.body.appendChild(holder);
+  if(document.fonts && document.fonts.ready) await document.fonts.ready;
+  await new Promise(requestAnimationFrame);
+  try{
+    return await html2canvas(clone, { scale: 3, useCORS: true, backgroundColor: '#ffffff' });
+  } finally {
+    holder.remove();
+  }
+}
+
+async function captureClipboard(){
+  const canvas = await renderCanvas();
+  const blob = await new Promise(res=>canvas.toBlob(res,'image/png'));
+  try{
+    await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
+    alert('이미지가 복사되었습니다. 카카오톡 대화창에 붙여넣어 주세요.\n(휴대폰에서는 [이미지 저장]을 이용해 주세요.)');
+  }catch(e){
+    if(confirm('이 기기에서는 복사가 지원되지 않습니다. 이미지로 저장하시겠습니까?')) saveBlob(blob);
+  }
+}
+async function downloadImage(){
+  const canvas = await renderCanvas();
+  canvas.toBlob(blob=>saveBlob(blob), 'image/png');
+}
+async function saveBlob(blob){
+  const file = new File([blob], '시그널스튜디오_의상사이즈.png', {type:'image/png'});
+  // 휴대폰: 공유 시트로 사진 저장/카카오톡 전송 가능
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    try{ await navigator.share({files:[file], title:'가족 의상 사이즈 리스트'}); return; }catch(e){ if(e.name==='AbortError') return; }
+  }
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = '시그널스튜디오_의상사이즈.png'; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+}
+
+/* ===== 초기화 ===== */
+function confirmReset(){ if(confirm('입력하신 내용을 모두 지우시겠습니까?')) resetTable(); }
+function resetTable(){
+  document.getElementById('familiesContainer').innerHTML='';
+  familyCount=0;
+  CONFIG.initialBlocks.forEach((n,i)=>createFamilyBlock(n, i===0 ? CONFIG.firstBlockPresets : []));
+  document.getElementById('familyButtons').style.display = CONFIG.showFamilyButtons ? 'flex' : 'none';
+}
+window.onload = resetTable;
+</script>
+</body>
+</html>
